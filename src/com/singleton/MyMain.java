@@ -23,7 +23,8 @@ public class MyMain {
 		ResultSet rs = null;
 		try{
 			//pooledDS = LoadDataSource.INSTANCE.getPooledDatasource();
-			pooledDS = OnDemandDatasource.getOnDemandDatasource().getPooledDS();
+			//pooledDS = OnDemandDatasource.getOnDemandDatasource().getPooledDS();
+			pooledDS = EagerLoadDataSource.getInstance().getPooledDS();
 			con = pooledDS.getConnection();
 			ps = con.prepareStatement("select st_name from studentTbl");
 			rs = ps.executeQuery();
