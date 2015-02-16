@@ -22,7 +22,8 @@ public class MyMain {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try{
-			pooledDS = LoadDataSource.INSTANCE.getPooledDatasource();
+			//pooledDS = LoadDataSource.INSTANCE.getPooledDatasource();
+			pooledDS = OnDemandDatasource.getOnDemandDatasource().getPooledDS();
 			con = pooledDS.getConnection();
 			ps = con.prepareStatement("select st_name from studentTbl");
 			rs = ps.executeQuery();
